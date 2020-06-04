@@ -1,0 +1,41 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="col-md-9 top-right">
+<div class="contact-content">
+		     <div class="contact-info">
+			 <h2>Контакты</h2>
+			 <p>popular belief.</p>
+		     </div>
+			 <div class="contact-details">				 
+			 <form>
+				 <input type="text" placeholder="Name" required/>
+				 <input type="text" placeholder="Email" required/>
+				 <input type="text" placeholder="Phone" required/>
+				 <input type="text" placeholder="City Name" required/>
+				 <textarea placeholder="Message"></textarea>
+				 <input type="submit" value="Отправить сообщение">
+			 </form>
+		  </div>
+		  <div class="contact-details">
+			  <div class="col-md-6 contact-map">
+				 <h4>Найти нас здесь:</h4>
+				 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2125.225578882685!2d28.34758711573997!3d57.81449098115464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c019374aa1f9f5%3A0x3c5efc814b530b28!2z0J_RgdC60L7QstCT0KM!5e0!3m2!1sru!2sru!4v1590271695128!5m2!1sru!2sru" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+			  </div>
+			  <div class="col-md-6 company_address">		 
+					<h4>Связаться</h4>
+					<p>ул. Льва Толстого, 4, корп. 1, Псков</p>
+					<p>Россия</p>
+					<p>Email: <a href="mailto:info@example.com">info@mycompany.com</a></p>
+					<p>Follow on: <a href="#">Facebook</a>, <a href="#">Twitter</a></p>
+			 </div>
+			  <div class="clearfix"></div>
+	     </div>		 
+	 </div>
+	 </div>
+		<div class="clearfix"> </div>
+	</div>
+	</div>
+
+{% endblock %}

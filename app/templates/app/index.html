@@ -1,0 +1,90 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<!-- banner -->
+				<div class="banner">
+					<div class="col-md-8 banner-left">
+						<h2> <a href="{% url 'blog'%}">Cosmo Blog</a></h2>
+						<p>Добро пожаловать в блог, посвященный популяризации космонавтики, астрономии, и, шире, науки и прогресса человечества.</p>
+					</div>
+					<div class="col-md-4 banner-right">
+						<img src="images/img1.jpg" class="img-responsive" alt="" />
+						<img src="images/img2.jpg" class="img-responsive" alt="" />
+						<img src="images/img3.jpg" class="img-responsive" alt="" />
+					</div>
+						<div class="clearfix"> </div>
+				</div>
+				<!-- banner -->
+				<!-- welcome -->
+				<div class="welcome">
+					<h2><span>Привет!</span> Пожалуйста, ведите себя вежливо. Если вы нашли ошибку, не стесняйтесь на нее мне указать. Надеюсь приведённые ниже факты помогут вам заинтересоваться космосом :)</h2>
+					<div class="welcome-top">
+						<div class="col-md-6 welcome-left">
+							<div class="view view-tenth">
+							  <a href="{% url 'singlepage'%}">
+							   <div class="inner_content clearfix">
+								<div class="product_image">
+									<img src="http://images.astronet.ru/pubd/2004/09/09/0001199547/sagTriplet_gendler_full.jpg" class="img-responsive of-my" alt=""/>
+									<div class="mask" >
+										<h4>Алкогольное облако</h4>
+										<p>Хотите открыть собственный бар? Лучшего места, чем Стрелец В2 вам не найти. Несмотря на расстояние 26000 световых лет от Земли, это газопылевое облако содержит много миллиардов литров винилового спирта. Конечно, его нельзя пить, но это органическое соединение имеет большое значение для существования жизни на Земле в целом.</p>
+									</div>
+									</div>
+								 </div>
+								</a> 
+						   </div>
+						</div>
+						<div class="col-md-6 welcome-right">
+							<div class="view view-tenth">
+							  <a href="{% url 'singlepage'%}">
+							   <div class="inner_content clearfix">
+								<div class="product_image">
+									<img src="https://avatars.mds.yandex.net/get-zen_doc/1328583/pub_5ac7cb6d830905913c2dd715_5ac7d9fff0317313f624d539/scale_1200" class="img-responsive of-my" alt=""/>
+									<div class="mask" >
+										<h4>Горящий лед</h4>
+										<p>На планете Gliese 436 b температура держится на уровне 300 градусов по Цельсию, но, тем не менее, лёд на ней не тает. Оказывается, все дело в силе тяжести - она настолько мощная, что сжимает воду и удерживает ее в твердом состоянии.</p>
+									</div>
+									</div>
+								 </div>
+								</a> 
+						   </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				<!-- welcome-bottom -->
+					<div class="welcome-bottom">
+						<div class="col-md-6 welcome-left1">
+							<img src="https://www.sunhome.ru/i/cards/117/otkritka-s-krasivimi-planetami.orig.jpg" class="img-responsive" alt="" />
+							<h3><a href="">Космос ближе, чем кажется</a></h3>
+							<p>Без космоса будущего нет, и единственное верное стремление – это вверх.</p>
+						</div>
+						<div class="col-md-6 welcome-right1">
+                            {% for post in last_pages %}
+							<div class="free">
+                                {% if post.image and post.image.url != '/media/temp.jpg' %}
+								<div class="free-left">
+									<a href="{% url 'blogpost' parametr=post.id %}"><img src="{{ post.image.url }}" class="img-responsive" alt="" /></a>
+								</div>
+                                {% endif %}
+								<div class="free-right">
+									<h5><a href="{% url 'blogpost' parametr=post.id %}">{{ post.title }}</a></h5>
+									<p>{{ post.discription }} </p>
+								</div>
+                                
+								<div class="clearfix"> </div>
+							</div>
+                            {% endfor %}
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				<!-- welcome-bottom -->
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+
+{% endblock %}

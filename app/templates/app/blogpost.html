@@ -1,0 +1,94 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="col-md-9 top-right">
+				<div class="content">
+				<div class="grids">
+					<div class="grid box">
+						<div class="grid-header">
+						<h3> {{post_1.title}} </h3>
+						<ul>
+							<li><span>Post By <a href="#">{{post_1.author}}</a> {{post_1.posted}} </span></li>
+							
+						</ul>
+						</div>
+                        {%if post_1.image and post_1.image.url != '/media/temp.jpg' %}
+						<div class="singlepage">
+							<img src="{{ post_1.image.url }}" class="img-responsive" alt="">
+                            {% endif %}
+							<p class="sng">{{post_1.content|linebreaksbr}}</p>
+							<div class="clearfix"> </div>
+						</div>
+						
+					</div>
+					<div class="clearfix"> </div>
+					</div>
+					<div class="clearfix"> </div>
+
+
+
+
+
+
+{% if user.is_authenticated %}
+
+			<div class="lev">
+			<div class="leave">
+				<h4>Leave a comment</h4>
+				</div>
+				<form id="commentform" method="POST"> {% csrf_token %}
+				 
+					 <div class="clearfix"></div>
+                {{form.as_p}}
+			           <input name="submit" type="submit" id="submit" value="Отправить">
+					<div class="clearfix"></div>
+				   </form>
+                {% else %}
+                <h3> Для добавления своего комментария, пожалуйста, авторизуйтесь </h3>
+                <ul>
+                    <li><a href="{% url 'login' %}">Войти</a></li>
+                </ul>
+                {% endif %}
+
+                						<div class="comments-main">
+                                        {% for comment in comments %}
+							<div class="col-md-2 cmts-main-left">
+								<img src="images/avatar.png" alt="">
+							</div>
+							<div class="col-md-10 cmts-main-right">
+								<h5>{{comment.author}}</h5>
+								<p>{{comment.text|linebreaksbr}}</p>
+								<div class="cmts">
+									<div class="cmnts-left">
+										<p>{{comment.date}}</p>
+									</div>
+							
+										<div class="clearfix"></div>
+								</div>
+							</div>
+                                            {% endfor %}
+								<div class="clearfix"></div>
+						</div>
+
+
+
+
+
+
+
+				  </div>
+
+					<div class="clearfix"> </div>
+					
+			</div>
+	</div>
+			</div>
+	</div>
+
+
+
+
+
+
+
+{% endblock %}
