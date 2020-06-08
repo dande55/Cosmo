@@ -23,11 +23,13 @@ urlpatterns = [
     url(r'^contact$', app.views.contact, name='contact'),
     url(r'^achives$', app.views.achives, name='achives'),
     url(r'^blog$', app.views.blog, name='blog'),
+    url(r'^video$', app.views.video, name='video'),
     url(r'^page$', app.views.page, name='page'),
     url(r'^error$', app.views.error, name='error'),
     url(r'^singlepage$', app.views.singlepage, name='singlepage'),
     url(r'^about$', app.views.about, name='about'),
     url(r'^(?P<parametr>\d+)/$', app.views.blogpost, name='blogpost'),
+    url(r'^newpost$', app.views.newpost, name='newpost'),
     url(r'^login/$',
         django.contrib.auth.views.login,
         {

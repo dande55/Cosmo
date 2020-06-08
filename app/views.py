@@ -13,6 +13,7 @@ from django.db import models
 from .models import Blog
 from .models import Comment # использование модели комментариев
 from .forms import CommentForm # использование формы ввода комментария
+from .forms import BlogForm
 
 def home(request):
     """Renders the home page."""
@@ -124,6 +125,44 @@ def contact(request):
             'year':datetime.now().year,
         }
     )
+
+def video(request):
+    """Renders the video page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/video.html',
+        {
+            'title':'video',
+            'message':'Your video page.',
+            'year':datetime.now().year,
+        }
+    )
+
+def newpost(request):
+    """Renders the newpost page."""
+
+    if request.method == 'POST':
+      blogform = Blogfrom(request.POST, request.FILES)
+      if blogform.is_valid():
+          blog_f = blogform.save(commit=False)
+          blof_f.posted = datetime.now()
+
+          blog_f.save()
+
+          return redirect('blog')
+    else:
+      blogform = BlogForm()
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/newpost.html',
+        {
+            'blogform': blogform,
+            'year':datetime.now().year,
+        }
+    )
+
 
 
 

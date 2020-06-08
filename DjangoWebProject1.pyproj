@@ -111,9 +111,11 @@
     <Content Include="app\templates\app\error.html" />
     <Content Include="app\templates\app\achives.html" />
     <Content Include="app\templates\app\blog.html" />
+    <Content Include="app\templates\app\newpost.html" />
     <Content Include="app\templates\app\page.html" />
     <Content Include="app\templates\app\registration.html" />
     <Content Include="app\templates\app\singlepage.html" />
+    <Content Include="app\templates\app\video.html" />
     <Content Include="Cosmo\.gitignore" />
     <Content Include="Cosmo\.git\config" />
     <Content Include="Cosmo\.git\description" />
